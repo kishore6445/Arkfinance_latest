@@ -3,7 +3,7 @@ import { NextResponse } from "next/server"
 
 export async function GET(request: Request) {
   try {
-    const supabase = createServerClient()
+    const supabase = await createServerClient()
     const { searchParams } = new URL(request.url)
     const categoryId = searchParams.get("category_id")
 
@@ -36,7 +36,7 @@ export async function GET(request: Request) {
 
 export async function POST(request: Request) {
   try {
-    const supabase = createServerClient()
+    const supabase = await createServerClient()
     const body = await request.json()
 
     const { category_id, account_id, split_percentage } = body

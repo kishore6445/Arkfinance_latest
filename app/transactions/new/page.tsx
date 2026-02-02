@@ -48,6 +48,7 @@ export default function NewTransactionPage() {
   useEffect(() => {
     async function fetchCategories() {
       try {
+        debugger;
         const response = await fetch("/api/categories")
         if (response.ok) {
           const data = await response.json()
@@ -434,7 +435,7 @@ export default function NewTransactionPage() {
                 className="w-full h-12 rounded-2xl border-2 border-dashed bg-transparent"
               >
                 <Camera className="mr-2 h-5 w-5" />
-                {receiptFile ? "Change Receipt" : "Upload Receipt"}
+                {receiptFile ? "Change Receipt" : "Upload Receipt_test"}
               </Button>
 
               <Button

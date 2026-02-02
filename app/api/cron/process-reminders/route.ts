@@ -4,7 +4,7 @@ import { createServerClient } from "@/lib/supabase/server"
 // This route should be called by a cron job (Vercel Cron or external service)
 export async function GET() {
   try {
-    const supabase = createServerClient()
+    const supabase = await createServerClient()
 
     // Get today's date
     const today = new Date()

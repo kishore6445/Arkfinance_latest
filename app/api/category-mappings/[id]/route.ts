@@ -3,7 +3,7 @@ import { NextResponse } from "next/server"
 
 export async function DELETE(request: Request, { params }: { params: { id: string } }) {
   try {
-    const supabase = createServerClient()
+    const supabase = await createServerClient()
     const { id } = params
 
     const { error } = await supabase.from("category_account_mappings").delete().eq("id", id)

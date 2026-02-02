@@ -3,7 +3,7 @@ import { NextResponse } from "next/server"
 
 export async function PATCH(request: Request, { params }: { params: { id: string } }) {
   try {
-    const supabase = createServerClient()
+    const supabase = await createServerClient()
     const body = await request.json()
     const { id } = params
 
@@ -38,7 +38,7 @@ export async function PATCH(request: Request, { params }: { params: { id: string
 
 export async function DELETE(request: Request, { params }: { params: { id: string } }) {
   try {
-    const supabase = createServerClient()
+    const supabase = await createServerClient()
     const { id } = params
 
     const { error } = await supabase.from("transaction_categories").delete().eq("id", id)
